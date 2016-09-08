@@ -16,16 +16,24 @@ function cleanup() {
 }
 
 function usePort(pin, direction) {
-  fs.writeFileSync(path.join(sysGpio, 'export'), pin);
-  setTimeout(() => {
-    const gpio = path.join(sysGpio, 'gpio' + pin);
-    fs.writeFileSync(path.join(gpio, 'direction'), direction);
-  }, 100);
+  if (fs.existsSync(sysGpio)){
+    fs.writeFileSync(path.join(sysGpio, 'export'), pin);
+    setTimeout(() => {
+      const gpio = path.join(sysGpio, 'gpio' + pin);
+      fs.writeFileSync(path.join(gpio, 'direction'), direction);
+    }, 100);
+  } else {
+    console.log("usePort:pin = " + pin + " / direction = " + direction);
+  }
 }
 
 function setValue(pin, value) {
-  const gpio = path.join(sysGpio, 'gpio' + pin);
-  fs.writeFileSync(path.join(gpio, 'value'), value);
+  if (fs.existsSync(sysGpio)) {
+    const gpio = path.join(sysGpio, 'gpio' + pin);
+    fs.writeFileSync(path.join(gpio, 'value'), value);
+  } else {
+    console.log("setValue:pin = " + pin + " / value = " + value);
+  }
 }
 
 function getValue(pin) {
