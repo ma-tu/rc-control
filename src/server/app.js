@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var rcApp = require('./rc/rc-app');
+
 var app = express();
 
 // view engine setup
@@ -56,5 +58,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// initialize rc-server
+rcApp.initialize();
 
 module.exports = app;
