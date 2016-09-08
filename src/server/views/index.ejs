@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link href="/vendors/css/bootstrap.css" rel="stylesheet">
+    <script src="/vendors/js/jquery.min.js"></script>
+    <script src="/vendors/js/bootstrap.js"></script>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<div id="test"></div>
+<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+</ul>
+<script>
+    $(function () {
+        $("#test").html("jquery");
+    });
+</script>
+</body>
 </html>
