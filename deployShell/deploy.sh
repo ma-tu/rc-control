@@ -1,5 +1,4 @@
 #!/bin/bash
-permitted by applicable law.
 unzip -q rc-control.zip
 rm rc-control.zip
 
