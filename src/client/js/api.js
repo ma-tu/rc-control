@@ -7,6 +7,10 @@ function ledOff() {
   post('/led', {action: 'off'})
 }
 
+function test(no) {
+  post('/test', {no: no})
+}
+
 function post(url, data) {
   $.ajax({
     type: 'POST',
