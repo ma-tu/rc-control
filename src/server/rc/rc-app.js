@@ -1,6 +1,7 @@
-var gpio = require('./gpio');
+//var gpio = require('./gpio');
 
 function initialize() {
+  /*
   gpio.cleanup();
   gpio.usePort(24, "out");
 
@@ -10,6 +11,7 @@ function initialize() {
       process.exit(1);
     })
   });
+  */
 }
 
 module.exports = {initialize};

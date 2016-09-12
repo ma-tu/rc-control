@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var gpio = require('../rc/gpio');
+var Gpio = require('pigpio').Gpio;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,13 +9,18 @@ router.get('/', function(req, res, next) {
 
 router.post('/led', function(req, res) {
   console.log(req.body.action);
-  if (req.body.action == 'on') {
-    gpio.setValue(24, 1);
-  } else if (req.body.action == 'off') {
-    gpio.setValue(24, 0);
-  } else if (req.body.action == 'get') {
-    console.log(gpio.getValue(24));
+
+  try{
+    var led = new Gpio(24, {mode: Gpio.OUTPUT});
+    if (req.body.action == 'on') {
+      led.digitalWrite(1);
+    } else if (req.body.action == 'off') {
+      led.digitalWrite(0);
+    }
+  }catch (e) {
+    console.log(e);
   }
+
   res.send(req.body);
 });
 
