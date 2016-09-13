@@ -11,6 +11,10 @@ function test(no) {
   post('/test', {no: no})
 }
 
+function rc(action) {
+  post('/rc', {action: action})
+}
+
 function post(url, data) {
   $.ajax({
     type: 'POST',

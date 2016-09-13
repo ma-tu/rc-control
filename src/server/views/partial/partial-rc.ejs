@@ -1,0 +1,45 @@
+<div class="row">
+    <button id="forward" type="button" class="btn btn-success col-xs-4 col-xs-offset-4" style="height:120px">まえ</button>
+</div>
+<div class="row">
+    <button id="left" type="button" class="btn btn-success col-xs-4" style="height:120px">ひだり</button>
+    <button id="right" type="button" class="btn btn-success col-xs-4 col-xs-offset-4" style="height:120px">みぎ</button>
+</div>
+<div class="row">
+    <button id="back" type="button" class="btn btn-success col-xs-4 col-xs-offset-4" style="height:120px">うしろ</button>
+</div>
+
+
+<script>
+    $('#forward').bind('mousedown', function() {
+        rc('forward');
+    });
+    $('#forward').bind('touchstart', function() {
+        rc('forward');
+    });
+    $('#back').bind('mousedown', function() {
+        rc('back');
+    });
+    $('#back').bind('touchstart', function() {
+        rc('back');
+    });
+    $('#right').bind('mousedown', function() {
+        rc('right');
+    });
+    $('#right').bind('touchstart', function() {
+        rc('right');
+    });
+    $('#left').bind('mousedown', function() {
+        rc('left');
+    });
+    $('#left').bind('touchstart', function() {
+        rc('left');
+    });
+    $('body').bind('mouseup', function() {
+        rc('stop');
+    });
+    $('body').bind('touchend', function() {
+        rc('stop');
+    });
+
+</script>
