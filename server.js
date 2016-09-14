@@ -7,10 +7,6 @@ var bodyParser = require('body-parser');
 
 var routes = require('./src/server/routes/index');
 var users = require('./src/server/routes/users');
-var tests = require('./src/server/routes/test');
-var rcRoutes = require('./src/server/routes/rc');
-
-var rcApp = require('./src/server/rc/rc-app');
 
 var app = express();
 
@@ -28,8 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/test', tests);
-app.use('/rc', rcRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -61,8 +55,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// initialize rc-server
-rcApp.initialize();
 
 module.exports = app;

@@ -1,12 +1,11 @@
-var express = require('express');
-var router = express.Router();
 var Gpio = require('pigpio').Gpio;
 
-router.post('/', function(req, res) {
-  console.log('test:no = ' + req.body.no);
+function post(req, res){
+  var testId = req.body.id;
+  console.log('test:id = ' + testId);
 
-  switch(req.body.no) {
-    case 1:
+  switch(testId) {
+    case 'test1' :
       try{
         var motorRight = new Gpio(19, {mode: Gpio.OUTPUT});
         console.log("motor.pwmWrite(128)");
@@ -19,7 +18,7 @@ router.post('/', function(req, res) {
         console.log(e);
       }
       break;
-    case 2:
+    case 'test2' :
       try{
         var motorLeft = new Gpio(11, {mode: Gpio.OUTPUT});
         console.log("motorLeft.digitalWrite(1)");
@@ -32,7 +31,7 @@ router.post('/', function(req, res) {
         console.log(e);
       }
       break;
-    case 3:
+    case 'test3' :
       var servo = new Gpio(10, {mode: Gpio.OUTPUT});
       var counter = 0;
       var timer = setInterval(() => {
@@ -58,12 +57,12 @@ router.post('/', function(req, res) {
         }
       }, 1000);
       break;
-    case 4:
+    case 'test4' :
       break;
-    case 5:
+    case 'test5' :
       break;
   }
   res.send(req.body);
-});
+}
 
-module.exports = router;
+module.exports = {post};

@@ -37,10 +37,15 @@ gulp.task('clean:public:app', function () {
 
 gulp.task('build:clean', ['clean:public:app']);
 
-gulp.task('build:deploy', ['build:client:js']);
+gulp.task('build:deploy', ['build:client:js', 'build:client:css']);
 
 gulp.task('build:client:js', () => {
   return gulp.src(['./src/client/js/*'])
     .pipe(gulp.dest('./public/app/js'))
+});
+
+gulp.task('build:client:css', () => {
+  return gulp.src(['./src/client/css/*'])
+    .pipe(gulp.dest('./public/app/css'))
 });
 

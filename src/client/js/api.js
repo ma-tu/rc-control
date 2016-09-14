@@ -1,14 +1,6 @@
 
-function ledOn() {
-  post('/led', {action: 'on'})
-}
-
-function ledOff() {
-  post('/led', {action: 'off'})
-}
-
-function test(no) {
-  post('/test', {no: no})
+function test(id) {
+  post('/test', {id: id})
 }
 
 function rc(action) {
@@ -23,11 +15,10 @@ function post(url, data) {
     data:JSON.stringify(data),
     dataType: "json"
   }).done(function(data){
-    console.log('done');
-    console.log(data);
+    //
   }).fail(function(){
-    console.log('fail');
+    //
   }).always(function(){
-    console.log('ajax finish');
+    //
   });
 }

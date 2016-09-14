@@ -7,5 +7,6 @@ rm -rf /opt/local/rc-control/src
 mv rc-control/public /opt/local/rc-control
 mv rc-control/src /opt/local/rc-control
 mv rc-control/server.js /opt/local/rc-control
+mv rc-control/bin/www /opt/local/rc-control/bin
 
 sudo node /opt/local/rc-control/bin/www

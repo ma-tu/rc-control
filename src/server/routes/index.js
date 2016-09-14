@@ -1,27 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var Gpio = require('pigpio').Gpio;
 
-/* GET home page. */
+var rc = require('../controllers/rc-controller');
+var test = require('../controllers/test-controller');
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/led', function(req, res) {
-  console.log(req.body.action);
+router.post('/rc', function(req, res) {
+  rc.post(req, res);
+});
 
-  try{
-    var led = new Gpio(24, {mode: Gpio.OUTPUT});
-    if (req.body.action == 'on') {
-      led.digitalWrite(1);
-    } else if (req.body.action == 'off') {
-      led.digitalWrite(0);
-    }
-  }catch (e) {
-    console.log(e);
-  }
-
-  res.send(req.body);
+router.post('/test', function(req, res) {
+  test.post(req, res);
 });
 
 module.exports = router;
