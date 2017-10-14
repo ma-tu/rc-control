@@ -9,6 +9,11 @@ var routes = require('./src/server/routes/index');
 
 var app = express();
 
+// raspberry pi のホスト名を受け取る
+var raspberryHost = process.argv[2];
+console.log('raspberryHost = ' + raspberryHost);
+app.set('raspberryHost', raspberryHost);
+
 // view engine setup
 app.set('views', path.join(__dirname, './src/server/views'));
 app.set('view engine', 'ejs');

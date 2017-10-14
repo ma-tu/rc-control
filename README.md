@@ -85,7 +85,7 @@ cd rc-control
 
 ```
 cd rc-control
-sudo node ./bin/www
+sudo node ./bin/www (Raspberry Pi のホスト名).local
 ```
 ## 終了方法
 

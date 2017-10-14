@@ -5,7 +5,10 @@ var rc = require('../controllers/rc-controller');
 var test = require('../controllers/test-controller');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  var raspberryHost = module.parent.exports.set('raspberryHost');
+  var streamUrl= "http://" + raspberryHost + ":8080/stream_simple.html";
+
+  res.render('index', { streamUrl: streamUrl});
 });
 
 router.post('/rc', function(req, res) {
