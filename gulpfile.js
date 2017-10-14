@@ -25,6 +25,8 @@ gulp.task('init-vendors:bootstrap:js', () => {
     .pipe(gulp.dest('./public/vendors/js'))
 });
 
+
+
 gulp.task('clean', ['clean:public:vendors', 'clean:public:app']);
 
 gulp.task('clean:public:vendors', function () {
@@ -35,7 +37,9 @@ gulp.task('clean:public:app', function () {
   return del("public/app");
 });
 
-gulp.task('build:clean', ['clean:public:app']);
+
+
+gulp.task('build', ['clean:public:app', 'build:deploy']);
 
 gulp.task('build:deploy', ['build:client:js', 'build:client:css']);
 

@@ -25,6 +25,13 @@
 
 ## セットアップ方法
 
+### npm
+
+Raspberry Pi に ssh で接続して、以下コマンドを実行する
+```
+sudo apt-get -y install npm
+```
+
 ### pigpio
 
 Raspberry Pi に ssh で接続して、以下コマンドを実行する
